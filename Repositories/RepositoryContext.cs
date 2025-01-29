@@ -1,10 +1,11 @@
-
 using Entities;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
  
 namespace Repositories{
     public class RepositoryContext:DbContext{
-        public DbSet<Product> Products { get; set; }    
+        public DbSet<Product> Products { get; set; }   
+        public DbSet<Category>categories{get;set;} 
         public RepositoryContext(DbContextOptions<RepositoryContext> options):base(options){
 
         }
@@ -18,6 +19,13 @@ namespace Repositories{
                 new Product() { ProductId = 4, ProductName = "Monitor", Price = 7_000 },
                 new Product() { ProductId = 5, ProductName = "Deck", Price = 1_500 }
             );
+              modelBuilder.Entity<Category>()
+            .HasData(
+                new Category() { CategoryId = 1, CategoryName = "Book" },
+                new Category() { CategoryId = 2, CategoryName = "Electronic" }
+            );
+
+
          }
 
 
