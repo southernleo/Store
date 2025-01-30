@@ -10,7 +10,7 @@ namespace StroreApp.Components{
         }
         
         public IViewComponentResult Invoke(){
-            var categories=_manager.categoryService.GetAllCategories(false);
+            var categories=_manager.CategoryService.GetAllCategories(false);
             return View(categories);
         }
 

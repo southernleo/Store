@@ -10,7 +10,7 @@ namespace StoreApp.Components{
         
 
         public string Invoke(){
-            return _manager.productService.GetAllProducts(false).Count().ToString();
+            return _manager.ProductService.GetAllProducts(false).Count().ToString();
 
         }
     }
