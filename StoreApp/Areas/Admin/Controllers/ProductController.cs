@@ -39,14 +39,15 @@ namespace StoreApp.Areas.Admin.Controllers{
            
         }
         public IActionResult Update([FromRoute(Name="id")]int id){
-            var model = _manager.ProductService.GetOneProduct(id,false);
+             ViewBag.Categories = GetCategoriesSelectList();
+            var model = _manager.ProductService.GetOneProductForUpdate(id,false);
         return  View(model);
         }
  
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(Product product){
+        public IActionResult Update(ProductDtoForUpdate product){
             if (ModelState.IsValid){
                   _manager.ProductService.UpdateOneProduct(product);
                     return RedirectToAction("Index");
