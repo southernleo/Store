@@ -13,10 +13,10 @@ namespace StoreApp.Pages
         public Cart Cart { get; set; } // IoC
         public string ReturnUrl { get; set; } = "/";
 
-        public CartModel(IServiceManager manager, Cart cart)
+        public CartModel(IServiceManager manager, Cart cartService)
         {
             _manager = manager;
-            Cart = cart;
+            Cart = cartService;
         }
 
 
