@@ -6,6 +6,7 @@ namespace Repositories{
     public class RepositoryContext:DbContext{
         public DbSet<Product> Products { get; set; }   
         public DbSet<Category>categories{get;set;} 
+        public DbSet<Order>Orders { get; set; }
         public RepositoryContext(DbContextOptions<RepositoryContext> options):base(options){
 
         }

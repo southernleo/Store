@@ -1,6 +1,4 @@
-using Entities.Models;
-
-namespace Entities.Model{
+namespace Entities.Models{
     public class CartLine{
         public int CartLineID { get; set; }
         public Product Product { get; set; }=new();

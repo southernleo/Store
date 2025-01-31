@@ -1,5 +1,3 @@
-using Entities.Model;
-
 namespace Entities.Models{
     public class Cart{
         public List<CartLine>Lines { get; set; }

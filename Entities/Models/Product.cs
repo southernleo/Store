@@ -1,9 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Entities.Models{
+﻿namespace Entities.Models{
 
 public class Product
-{
+      {
         public int ProductId { get; set;}
         
         public string ProductName { get; set;}=String.Empty;
@@ -15,5 +13,5 @@ public class Product
         public Category? Category { get; set;}  
         
 
-}
+      }
 }
