@@ -20,6 +20,12 @@ namespace Repositories{
 
         }
 
+        public IQueryable<Product> GetShowcaseProducts(bool trackChanges)
+        {
+            return FindAll(trackChanges)
+            .Where(p=>p.ShowCase.Equals(true));
+        }
+
         public void UpdateOneProduct(Product entity)=>Update(entity);
        
     }
