@@ -24,6 +24,8 @@ app.UseStaticFiles();
 app.UseSession();
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     _ = endpoints.MapAreaControllerRoute(
@@ -36,6 +38,7 @@ app.UseEndpoints(endpoints =>
     );
     _ = endpoints.MapRazorPages();
 });
+
 app.ConfigureAndCheckMigration();
 app.ConfigureLocalization();
 app.ConfigureDefaultAdminUser();
