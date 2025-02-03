@@ -50,6 +50,7 @@ namespace StoreApp.Infrastructure.Extensions
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            
         }
         public static void ConfigureServiceRegistration(this IServiceCollection services)
         {
@@ -57,6 +58,7 @@ namespace StoreApp.Infrastructure.Extensions
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<IOrderService, OrderManager>();
+            services.AddScoped<IAuthService, AuthManager>();
         }
         public static void ConfigureRouting(this IServiceCollection services){
             services.AddRouting(options=>{
