@@ -9,5 +9,7 @@ public interface IAuthService{
     Task<IdentityResult>CreateUser(UserDtoForCreation userDto);
     Task<IdentityUser>GetOneUser(string userName);
     Task Update(UserDtoForUpdate userDto);
+    Task<IdentityResult>ResetPassword(ResetPasswordDto model);
+    Task<IdentityResult>DeleteOneUser(string username);
 }
 }
