@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
-namespace StroreApp.Areas.Admin.Controllers{
+namespace StoreApp.Areas.Admin.Controllers{
 
     [Area("Admin")]
     public class OrderController : Controller{

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
-namespace StroreApp.Components{
+namespace StoreApp.Components{
     public class CategoriesMenuViewComponent:ViewComponent{
         private readonly IServiceManager _manager;
 

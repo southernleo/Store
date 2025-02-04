@@ -1,8 +1,10 @@
 using Entities.Dtos;
+using Entities.RequestParameters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Services.Contracts;
+using StoreApp.Models;
 
 namespace StoreApp.Areas.Admin.Controllers{
     [Area("Admin")]
@@ -15,9 +17,18 @@ namespace StoreApp.Areas.Admin.Controllers{
             _manager = manager;
         }
 
-        public ActionResult Index(){
-            var model=_manager.ProductService.GetAllProducts(false);
-            return View(model);
+        public ActionResult Index([FromQuery]ProductRequestParameters p){
+            ViewData["Title"]= "Products";
+            var products = _manager.ProductService.GetAllProductsWithDetails(p);
+            var pagination =new Pagination(){
+                CurrentPage=p.PageNumber,
+                ItemsPerPage=p.PageSize,
+                TotalItems=_manager.ProductService.GetAllProducts(false).Count()
+            };
+            return View(new ProductListViewModel(){
+                Products = products,
+                Pagination = pagination
+            });
         }
         public IActionResult Create(){
                ViewBag.Categories = GetCategoriesSelectList();
@@ -38,10 +49,13 @@ namespace StoreApp.Areas.Admin.Controllers{
                 "wwwroot","images",file.FileName);
                 using( var stream =new FileStream(path,FileMode.Create)){
                     await file.CopyToAsync(stream);
+                    
                      
                 }productDto.ImageUrl=String.Concat("/images/",file.FileName);
                  _manager.ProductService.CreateProduct(productDto);
-                    return RedirectToAction("Index");
+                 TempData["success"]=$"{productDto.ProductName}has been created.";
+
+                return RedirectToAction("Index");
             }
             return View();
            
@@ -49,7 +63,8 @@ namespace StoreApp.Areas.Admin.Controllers{
         public IActionResult Update([FromRoute(Name="id")]int id){
              ViewBag.Categories = GetCategoriesSelectList();
             var model = _manager.ProductService.GetOneProductForUpdate(id,false);
-        return  View(model);
+            ViewData["Title"]=model?.ProductName;
+             return  View(model);
         }
  
 
@@ -73,6 +88,7 @@ namespace StoreApp.Areas.Admin.Controllers{
         [HttpGet]
         public IActionResult Delete([FromRoute(Name ="id")]int id){
             _manager.ProductService.DeleteOneProduct(id);
+            TempData["danger"]= "the product has been removed.";
             return RedirectToAction("Index");
 
         }
