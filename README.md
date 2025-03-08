@@ -8,7 +8,7 @@ Technologies Used
 
 ASP.NET Core MVC
 
-Entity Framework Core (SQLite, MSSQL)
+Entity Framework Core (SQLite)
 
 AutoMapper
 
