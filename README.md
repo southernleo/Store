@@ -1,90 +1,59 @@
-ASP.NET Core MVC Project
+ # StoreApp - ASP.NET Core MVC E-Ticaret Uygulaması
 
-Overview
+## Proje Hakkında
 
-This project was developed as part of the ASP.NET Core MVC  covers the implementation of the Model-View-Controller (MVC) architectural pattern and how to use the .NET framework for modern web application development.
+StoreApp, ASP.NET Core MVC kullanılarak geliştirilmiş temel özelliklere sahip bir e-ticaret uygulamasıdır. Ürünlerin listeleme, ekleme, güncelleme ve silme işlemleri desteklenmektedir. Katmanlı mimari ile sürdürülebilir bir yapı sunar.
 
-Technologies Used
+---
 
-ASP.NET Core MVC
+## Özellikler
 
-Entity Framework Core (SQLite)
+- Ürün listeleme ve detay görüntüleme  
+- Ürün ekleme, güncelleme ve silme  
+- Entity Framework Core Code First ile SQLite veritabanı yönetimi  
+- Bootstrap ile responsive tasarım  
+- Katmanlı mimari ve temiz kod prensipleri
 
-AutoMapper
+---
 
-Repository Pattern
+## Teknolojiler
 
-Dependency Injection
+- ASP.NET Core MVC  
+- C#  
+- Entity Framework Core (Code First)  
+- SQLite  
+- Bootstrap  
+- Visual Studio / VS Code
 
-Identity Authentication & Authorization
+---
 
-Session Management
+## Kurulum ve Çalıştırma
 
-Tag Helpers
+1. Depoyu klonlayın:  
+```bash
+git clone https://github.com/southernleo/Store.git
+Proje klasörüne gidin:
 
-Razor Pages
+bash
+cd Store
+Gerekli NuGet paketlerini indirin:
+bash
 
-Bootstrap & LibMan
-
-Web API
-
-Localization
-
-File Management (IFormFile, Image Uploading)
-
-Admin Panel with Dashboard & Notifications
-
-Features Implemented
-
-MVC Architecture: Built a web application using the MVC pattern with controllers, views, and models.
-
-Data-Driven Development: Utilized Entity Framework Core with SQLite/MSSQL for database management.
-
-Layout & Styling: Implemented layouts, partial views, and Bootstrap for UI consistency.
-
-Repository & Service Layers: Used repository and service patterns for a modular and maintainable structure.
-
-ViewComponents: Developed custom ViewComponents to enhance reusability in UI.
-
-Admin Panel: Created an admin dashboard with CRUD operations for managing products and categories.
-
-Session Management: Implemented shopping cart functionality using session state.
-
-Authentication & Authorization: Integrated ASP.NET Core Identity for user management, login, and role-based access control.
-
-API Development: Built a Web API layer to expose data for integration with other applications.
-
-Localization & Routing: Implemented multi-language support and custom routing.
-
-Extensions & Utilities: Developed extension methods for filtering, pagination, and routing enhancements.
+dotnet restore
+appsettings.json dosyasındaki bağlantı dizesinin doğru olduğundan emin olun:
 
 
-Learning Outcomes
+"ConnectionStrings": {
+    "DefaultConnection": "Data Source=StoreApp.db"
+}
+Migrationları uygulayarak veritabanını oluşturun:
 
-By completing this project, I have gained hands-on experience in:
+bash
+dotnet ef database update
+Uygulamayı çalıştırın:
 
-Structuring an ASP.NET Core MVC project efficiently.
-
-Implementing data access with Entity Framework Core.
-
-Managing authentication and authorization with Identity.
-
-Developing a modular architecture using repository and service layers.
-
-Enhancing UI with Bootstrap and Razor Pages.
-
-Creating and consuming Web APIs.
-
-Managing application state with session storage.
-
-Applying AutoMapper for object transformation.
-
-Implementing localization and routing techniques.
-
-Future Improvements
-
-Adding unit and integration tests.
-
-Enhancing API security with JWT authentication.
-
-Improving UI/UX design with advanced front-end frameworks.
+bash
+Kopyala
+Düzenle
+dotnet run
+Tarayıcınızda https://localhost:5001 (veya konsolda verilen URL) adresine gidin ve uygulamayı kullanmaya başlayın.
