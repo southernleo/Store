@@ -53,7 +53,5 @@ dotnet ef database update
 Uygulamayı çalıştırın:
 
 bash
-Kopyala
-Düzenle
 dotnet run
 Tarayıcınızda https://localhost:5001 (veya konsolda verilen URL) adresine gidin ve uygulamayı kullanmaya başlayın.
